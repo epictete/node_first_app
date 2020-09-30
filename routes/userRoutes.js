@@ -3,7 +3,7 @@ const users = "./DB/users.json";
 
 module.exports = app => {
     app.get("/users", (req, res) => {
-        console.log("Fetching all users");
+        console.log(`Fetching all users`);
         jsonfile.readFile(users, (err, content) => {
             res.send(content);
         });
@@ -15,7 +15,7 @@ module.exports = app => {
         jsonfile.readFile(users, (err, content) => {
             content.push({ email, username });
 
-            console.log("Added " + email + " to DB");
+            console.log(`Added ${email} to DB`);
 
             jsonfile.writeFile(users, content, err => console.log(err));
 
@@ -33,7 +33,7 @@ module.exports = app => {
 
             jsonfile.writeFile(users, content, err => console.log(err));
 
-            console.log("User removed from DB");
+            console.log(`User removed from DB`);
 
             res.sendStatus(200);
         });
@@ -48,10 +48,7 @@ module.exports = app => {
             for (var i = content.length - 1; i >= 0; i--) {
                 if (content[i].email === email) {
                     console.log(
-                        "Updated user " +
-                            email +
-                            " has now username : " +
-                            username
+                        `Updated user ${email} has now username : ${username}`
                     );
 
                     user = content[i];
@@ -71,7 +68,7 @@ module.exports = app => {
         jsonfile.readFile(users, (err, content) => {
             for (var i = content.length - 1; i >= 0; i--) {
                 if (content[i].email === email) {
-                    console.log("Found user " + content[i].username);
+                    console.log(`Found user ${content[i].username}`);
                     user = content[i];
                 }
             }
