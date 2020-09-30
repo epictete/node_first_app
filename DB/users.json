@@ -1,1 +1,5 @@
-[{"email":"example@example.com","username":"Foo"},{"email":"example2@domain.com","username":"Bar"},{"email":"john@gmail.com","username":"John-John"},{"email":"john@gmail.com","username":"john"}]
+[
+    { "email": "example@example.com", "username": "Foo" },
+    { "email": "example2@domain.com", "username": "Bar" },
+    { "email": "john@gmail.com", "username": "John" }
+]

@@ -27,14 +27,13 @@ module.exports = app => {
         let email = req.body.email;
 
         jsonfile.readFile(users, (err, content) => {
-            for (var i = content.length - 1; i >= 0; i--) {
-                if (content[i].email === email) {
-                    console.log("Removing " + content[i].email + " from DB");
-                    content.pop(i);
-                }
-            }
+            content = content.filter(user => {
+                return user.email !== email;
+            });
 
             jsonfile.writeFile(users, content, err => console.log(err));
+
+            console.log("User removed from DB");
 
             res.sendStatus(200);
         });
